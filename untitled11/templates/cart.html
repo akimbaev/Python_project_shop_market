@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block mainbody %}
+    <!-- <table>
+        <tr>
+            <th>Product</th>
+            <th></th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+        </tr>
+        {% for item in cart %}
+        <tr>
+            <td>{{ item.product.name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.total_price }}</td>
+        </tr>
+        {% endfor %}
+    </table> -->
+    {% for item in cart %}
+        {{ product.name }}
+        <!-- <div class="col-sm-4">
+        <img src="{{  item.image.url }}" style="width:80%; height:250px;">
+        </div> -->
+        <table>
+          <tr>
+        <div class="col-sm-8">
+            <h2>{{ item.product }}</h2>
+        <p>{{ item.description }}</p>
+        <p>price: {{ item.total_price }}</p>
+        <p>quantity: {{ item.quantity }}</p>
+        <a href="{% url 'clear' item.product.slug %}" ><button class="btn btn-danger">Delete</button></a>
+
+        </tr>
+        <td>
+        <img src="{{ item.product.image.url }}" style="width:50%; height:200px;">
+        </td>
+        </table>
+      {% endfor %}
+        {% csrf_token %}
+      <a href='/create/order' class="btn btn-primary btn-block">Go to buy </a>
+
+
+
+{% endblock %}

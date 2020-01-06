@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block mainbody %}
+
+<h3 class="text-left">{{ product.title }}</h3>
+    <div class="col-sm-4">
+    <img src="{{product.image.url}}" style="width:80%; height:250px;">
+    </div>
+    <div class="col-sm-8">
+    <p>{{ product.description }}</p>
+    <p>price: {{ product.price }}</p>
+    <a href="{% url 'add_to_cart' product.slug %}"><button class="btn btn-danger">v korzinu</button> </a>
+
+    </div>
+
+  {% endblock %}
